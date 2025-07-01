@@ -1,0 +1,1346 @@
+/* =========================================
+   DESAIN BARU OLEH GEMINI - STYLE.CSS
+   ========================================= */
+
+/* 1. Reset & Variabel Desain */
+:root {
+    --primary-brand: #005A9C;   /* Biru korporat yang kuat */
+    --primary-hover: #004A80;   /* Versi lebih gelap untuk hover */
+    --accent-color: #00BFA5;    /* Teal/Mint sebagai aksen cerah */
+    --accent-hover: #00A792;    /* Versi lebih gelap untuk aksen */
+    --bg-main: #F4F7F9;         /* Abu-abu sangat terang untuk latar belakang utama */
+    --bg-surface: #FFFFFF;      /* Putih bersih untuk kartu dan permukaan */
+    --text-primary: #121212;    /* Hitam pekat untuk teks utama */
+    --text-secondary: #596773;  /* Abu-abu untuk teks pendukung */
+    --text-placeholder: #A0AEC0;/* Abu-abu terang untuk placeholder */
+    --border-color: #E2E8F0;    /* Abu-abu sangat terang untuk border */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    overflow-x: hidden; /* <-- TAMBAHKAN BARIS INI */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-brand);
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* 2. Header & Navigasi */
+header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.menu-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.search-bar {
+    flex-grow: 1;
+    position: relative;
+}
+.search-bar input {
+    width: 100%;
+    padding: 12px 16px 12px 40px; /* Padding untuk ikon */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.search-bar::before { /* Ikon pencarian di dalam input */
+    content: '\f002';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-placeholder);
+}
+.search-bar input:focus {
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.2);
+}
+.profile-pic-header{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+.right-header-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+header h1 {
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--primary-brand);
+    user-select: none;
+}
+.profile-wrapper {
+    position: relative;
+}
+.profile-main-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-main);
+    object-fit: cover;
+}
+
+
+/* 3. Popout Menu & Backdrop */
+.popout-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 18, 18, 0.4);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+.popout-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.popout {
+    position: absolute;
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    padding: 8px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+}
+.popout.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.popout-profile { top: 120%; right: 0; }
+.popout-menu { top: 120%; left: 0; }
+.popout-menu-detail { 
+    top: 120%;
+    left: 0;
+    min-width: 240px;
+}
+
+.popout ul { list-style: none; }
+.popout a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-weight: 500;
+}
+.popout a:hover {
+    background-color: var(--bg-main);
+    color: var(--primary-brand);
+}
+
+/* 4. Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    margin-bottom: 32px;
+}
+.hero-content h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+}
+.hero-search-bar {
+    display: flex;
+    max-width: 650px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* agar tombol dan input menyatu */
+}
+.hero-search-bar input {
+    flex-grow: 1;
+    padding: 16px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+.hero-search-bar button {
+    padding: 0 32px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.hero-search-bar button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* 5. Section & Cards */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 48px;
+}
+.section-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.section-header a { font-weight: 600; }
+
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+}
+.job-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-brand);
+}
+.job-card .job-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    object-fit: contain;
+    background-color: #eee;
+}
+.job-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.job-card p {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.job-card .salary {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-top: 16px;
+}
+
+/* 6. Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .search-bar {
+        order: 3;
+        flex-basis: 100%;
+    }
+    .hero-content h2 { font-size: 32px; }
+}
+/* ===================================
+   STYLE HALAMAN PROFIL & PENGATURAN
+   =================================== */
+
+/* --- Halaman Profil --- */
+.user-profile-section { padding: 20px 0; }
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+.profile-main-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-main);
+    object-fit: cover;
+}
+.profile-header-info h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.profile-tagline {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+.edit-profile-btn {
+    display: inline-block;
+    background-color: var(--primary-brand);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+.edit-profile-btn:hover { background-color: var(--primary-hover); color: white; }
+.edit-profile-btn i { margin-right: 8px; }
+
+.profile-details-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    margin-bottom: 25px;
+}
+.profile-details-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.contact-info-list { list-style: none; }
+.contact-info-list li {
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.contact-info-list li i {
+    color: var(--primary-brand);
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+}
+
+/* --- Halaman Pengaturan (Form) --- */
+.settings-form { display: grid; gap: 32px; }
+.settings-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    padding: 24px 32px;
+}
+.settings-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    background-color: var(--bg-main);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.2);
+    background-color: var(--bg-surface);
+}
+.form-group input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group small { font-size: 13px; margin-top: 6px; }
+
+.form-submit-area { display: flex; justify-content: flex-end; }
+.save-button {
+    padding: 12px 28px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+.save-button:hover { background-color: var(--accent-hover); }
+/* ===================================
+   STYLE UNTUK TAG & CHECKBOX GROUP
+   =================================== */
+
+/* --- Tampilan Tag di Halaman Profil --- */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background-color: #E2E8F0; /* Abu-abu muda */
+    color: #4A5568; /* Abu-abu tua */
+    padding: 6px 12px;
+    border-radius: 20px; /* Bulat */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tag.skill-tag {
+    background-color: #D4EAF7; /* Biru muda untuk skill */
+    color: #1D4ED8; /* Biru tua */
+}
+
+/* --- Tampilan Grup Checkbox di Pengaturan --- */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-label:hover {
+    background-color: #F7FAFC;
+    border-color: var(--primary-brand);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-brand);
+}
+
+/* Style saat checkbox terpilih */
+input[type="checkbox"]:checked + span {
+    font-weight: 600;
+    color: var(--primary-brand);
+}
+.checkbox-label input[type="checkbox"]:checked {
+    border-color: var(--primary-brand);
+}
+/* ===================================
+   STYLE UNTUK UPLOAD FOTO PROFIL
+   =================================== */
+
+.profile-upload-area {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 16px;
+    background-color: #F8F9FA;
+    border-radius: var(--border-radius);
+}
+
+.current-profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+
+.upload-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: var(--primary-brand);
+    color: white;
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+.upload-button:hover {
+    background-color: var(--primary-hover);
+}
+.upload-button i {
+    margin-right: 8px;
+}
+
+.upload-locked {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+}
+.upload-locked i {
+    font-size: 18px;
+}
+
+/* Style untuk dropdown (select) agar seragam */
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    background-color: var(--bg-main);
+    /* Menambahkan panah dropdown kustom */
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group select:focus {
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.2);
+    background-color: var(--bg-surface);
+}
+
+/* Sedikit penyesuaian untuk span di dalam label checkbox */
+.checkbox-label span {
+    flex-grow: 1;
+}
+/* ===================================
+   STYLE UNTUK HALAMAN TAMBAH LOWONGAN
+   =================================== */
+
+/* Menggunakan kembali style .settings-form dan .settings-card dari halaman pengaturan */
+
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: var(--bg-main);
+    /* Menambahkan panah dropdown kustom */
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group select:focus {
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.2);
+    background-color: var(--bg-surface);
+}
+
+.save-button i {
+    margin-right: 8px;
+}
+
+/* ===================================
+   STYLE UNTUK FITUR CV & EMPTY STATE
+   =================================== */
+
+.cv-area {
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+}
+
+.cv-icon {
+    font-size: 2.5em;
+    color: #D32F2F; /* Warna merah khas PDF */
+}
+
+.cv-area p {
+    flex-grow: 1;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.cv-info {
+    flex-grow: 1;
+}
+.cv-info small {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.cv-download-btn, .cv-upload-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cv-download-btn {
+    background-color: var(--primary-brand);
+    color: white;
+}
+.cv-download-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.cv-upload-btn {
+    background-color: transparent;
+    color: var(--primary-brand);
+    border: 1px solid var(--primary-brand);
+}
+.cv-upload-btn:hover {
+    background-color: var(--primary-brand);
+    color: white;
+}
+
+.empty-state {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+.empty-state a {
+    font-weight: 600;
+}
+/* ===================================
+   STYLE HALAMAN BOOKMARK
+   =================================== */
+
+.bookmark-list {
+    display: grid;
+    gap: 16px;
+}
+
+.bookmark-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: all 0.5s ease; /* Transisi untuk efek hapus */
+}
+
+.bookmark-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.bookmark-info {
+    flex-grow: 1;
+}
+
+.bookmark-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.bookmark-info p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.bookmark-info small {
+    font-size: 13px;
+    color: var(--text-placeholder);
+}
+
+.remove-bookmark-btn {
+    background-color: #FEF2F2; /* Merah muda */
+    color: #DC2626; /* Merah */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.remove-bookmark-btn:hover {
+    background-color: #DC2626;
+    color: white;
+    transform: scale(1.1);  
+}
+/* ===================================
+   STYLE UNTUK MODAL BOOKMARK
+   =================================== */
+
+/* --- Modal Overlay & Box --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 18, 18, 0.6);
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.modal-box {
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.show .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--text-placeholder);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-header h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.modal-body h4 {
+    font-size: 18px;
+    color: var(--primary-brand);
+}
+.modal-body hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 16px 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+}
+.modal-footer .button-secondary {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+.modal-footer .button-secondary:hover {
+    background-color: var(--border-color);
+}
+
+/* --- Tombol Bookmark Interaktif --- */
+.bookmark-btn.bookmarked {
+    background-color: #FFFBEB; /* Kuning muda */
+    color: #B45309; /* Coklat/emas */
+    border-color: #FEF3C7;
+}
+.bookmark-btn.bookmarked i {
+    color: #D97706; /* Emas lebih terang */
+}
+
+/* Class untuk animasi fade out saat item dihapus */
+.bookmark-item.fading-out {
+    opacity: 0;
+    transform: translateX(20px);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -16px; /* Menghilangkan gap */
+    border: none;
+    overflow: hidden;
+}
+
+/* Style untuk kartu jika tidak ada bookmark */
+.empty-state-card {
+    background-color: var(--bg-surface);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 60px 40px;
+    text-align: center;
+}
+.empty-state-card i {
+    font-size: 48px;
+    color: var(--text-placeholder);
+    margin-bottom: 24px;
+}
+.empty-state-card h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.empty-state-card p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+.button-primary {
+    display: inline-block;
+    background-color: var(--primary-brand);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+}
+.button-primary:hover {
+    background-color: var(--primary-hover);
+}
+/* Style untuk tombol Lamar yang sudah diklik */
+.apply-now-btn.applied {
+    background-color: #166534; /* Hijau tua */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+/* ===================================
+   STYLE PENGEMBANGAN DETAIL LOWONGAN
+   =================================== */
+
+.similar-jobs {
+    margin-top: 48px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+}
+
+.similar-jobs h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+/* Menggunakan kembali style .job-list dan .job-item dari beranda */
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.job-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 3px 12px var(--shadow-sm);
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-color);
+}
+.job-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--primary-brand);
+}
+.job-icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: var(--bg-main);
+    flex-shrink: 0;
+}
+.job-info h4 { font-size: 17px; margin-bottom: 4px; color: var(--text-primary); }
+.job-info p { font-size: 14px; color: var(--text-secondary); }
+.job-item .salary { margin-left: auto; font-weight: 600; font-size: 14px; color: var(--accent-color); }
+
+
+/* Kontainer untuk notifikasi dinamis */
+.flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1005;
+}
+/* ===================================
+   PENGEMBANGAN HALAMAN DETAIL
+   =================================== */
+
+/* Info Perusahaan di Sidebar */
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.company-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius);
+}
+.company-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.company-link {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Status Tombol Bookmark yang Aktif */
+.bookmark-btn.bookmarked {
+    background-color: #FEF3C7; /* Kuning muda */
+    color: #92400E; /* Coklat/emas */
+    border-color: #FDE68A;
+}
+/* Ikon di dalam tombol yang sudah di-bookmark */
+.bookmark-btn.bookmarked i {
+    color: #D97706; /* Emas lebih terang */
+    font-weight: 900; /* Membuat ikon menjadi solid (jika menggunakan FontAwesome Duotone) */
+}
+/* ===================================
+   PENGEMBANGAN UI BERANDA
+   =================================== */
+
+/* 1. Animasi Elemen */
+.job-card, .section-header, .filter-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.job-card.visible, .section-header.visible, .filter-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Menambahkan delay animasi untuk setiap kartu */
+.job-card:nth-child(2) { transition-delay: 0.1s; }
+.job-card:nth-child(3) { transition-delay: 0.2s; }
+.job-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* 2. Filter Kategori */
+.category-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface);
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.filter-btn:hover {
+    background-color: var(--bg-main);
+    border-color: var(--primary-brand);
+}
+.filter-btn.active {
+    background-color: var(--primary-brand);
+    color: white;
+    border-color: var(--primary-brand);
+}
+
+/* 3. Tombol Bookmark di Kartu Lowongan */
+.job-card {
+    position: relative; /* Diperlukan untuk posisi absolut tombol bookmark */
+    display: block; /* Memastikan kartu ditampilkan dengan benar */
+}
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+.job-card .job-logo {
+    margin-bottom: 0; /* Hapus margin bawah karena sudah diatur di header kartu */
+}
+.job-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.card-bookmark-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-placeholder);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 5px;
+}
+.card-bookmark-btn:hover {
+    color: var(--primary-brand);
+    transform: scale(1.2);
+}
+.card-bookmark-btn.bookmarked i {
+    font-weight: 900; /* Membuat ikon menjadi solid */
+    color: var(--accent-color);
+}
+/* ===================================
+   REVISI UI HALAMAN DETAIL LOWONGAN
+   =================================== */
+
+/* Memberi ruang di bawah body untuk sticky bar */
+body.has-sticky-bar {
+    padding-bottom: 100px; 
+}
+
+/* Kartu header baru untuk judul lowongan */
+.job-detail-header-card {
+    background-color: var(--bg-surface);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.job-detail-header-card .job-detail-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px auto;
+    display: block;
+}
+
+.job-detail-header-card h1 {
+    font-size: 32px;
+}
+
+/* Membuat setiap bagian menjadi kartu terpisah */
+.detail-card {
+    background-color: var(--bg-surface);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+}
+
+.detail-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Notifikasi dinamis di dalam konten utama */
+.flash-container-inline {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+/* --- Sticky Apply Bar --- */
+.sticky-apply-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 16px 0;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+    z-index: 90;
+    transform: translateY(100%);
+    animation: slideUp 0.5s 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.sticky-bar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sticky-bar-job-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+.sticky-bar-job-info p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.sticky-bar-actions {
+    display: flex;
+    gap: 12px;
+}
+.bookmark-btn-sticky {
+    padding: 12px;
+    font-size: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+/* ===================================
+   STYLE FITUR CHAT MESSENGER
+   =================================== */
+.button-chat {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Agar menjadi satu baris penuh */
+}
+.button-chat:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+.button-chat i {
+    margin-right: 8px;
+}
+
+.messenger-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 340px;
+    background-color: var(--bg-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(120%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.messenger-container.open {
+    transform: translateY(0);
+}
+
+.messenger-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: var(--primary-brand);
+    color: white;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.messenger-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.messenger-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.messenger-profile h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.messenger-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.messenger-close-btn:hover {
+    opacity: 1;
+}
+
+.messenger-body {
+    height: 300px;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+.message-sent {
+    background-color: var(--primary-brand);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+.message-received {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.messenger-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
+}
+.messenger-footer input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    background: none;
+}
+.messenger-footer button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--primary-brand);
+    cursor: pointer;
+    padding: 8px;
+}
+/* ===================================
+   STYLE HALAMAN HASIL PENCARIAN
+   =================================== */
+
+.search-results-section .section-header {
+    align-items: flex-start;
+}
+
+.search-subtitle {
+    margin-top: 4px;
+    color: var(--text-secondary);
+}
+
+.search-subtitle strong {
+    color: var(--primary-brand);
+}
+.profile-pic-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.profile-main-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+.current-profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
