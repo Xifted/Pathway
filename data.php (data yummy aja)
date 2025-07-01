@@ -1,0 +1,367 @@
+<?php
+// ===========================================
+// _data.php - FILE UNTUK SEMUA DUMMY DATA GLOBAL
+// Sertakan file ini di setiap halaman PHP yang membutuhkannya
+// Contoh: include '_data.php';
+// ===========================================
+
+// Dummy data untuk semua lowongan
+$all_jobs_dummy_data = [
+    [
+        'title' => 'Frontend Developer',
+        'company' => 'PT. Kreatif Indonesia',
+        'location' => 'Jakarta',
+        'salary' => 'Rp5.000.000 - Rp7.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo1',
+        'description' => 'Kami mencari Frontend Developer berpengalaman untuk bergabung dengan tim kami. Anda akan bertanggung jawab untuk membangun antarmuka pengguna yang responsif dan interaktif untuk aplikasi web kami. Berkolaborasi dengan tim backend dan UI/UX untuk menciptakan pengalaman pengguna yang mulus dan menarik. Posisi ini membutuhkan pemahaman yang kuat tentang teknologi web modern dan kemampuan memecahkan masalah yang kreatif. Anda akan bekerja dengan HTML5, CSS3, JavaScript (termasuk framework seperti React atau Vue), dan memastikan kompatibilitas lintas browser. Pengalaman dengan tools build seperti Webpack atau Vite adalah nilai tambah. Kami mendorong inovasi dan eksplorasi teknologi baru. Bergabunglah dengan kami untuk membangun masa depan web!',
+        'requirements' => [
+            'Pengalaman minimal 3 tahun sebagai Frontend Developer.',
+            'Mahir dalam HTML5, CSS3 (termasuk Flexbox & Grid), dan JavaScript (ES6+).',
+            'Pengalaman dengan setidaknya satu framework modern (React, Vue, atau Angular).',
+            'Memahami prinsip-prinsip desain responsif dan mobile-first.',
+            'Terbiasa dengan sistem kontrol versi seperti Git.',
+            'Portofolio proyek yang relevan dan dapat ditinjau.',
+            'Kemampuan komunikasi yang baik dan kolaboratif.',
+        ],
+        'benefits' => [
+            'Gaji kompetitif dan tunjangan kesehatan komprehensif.',
+            'Lingkungan kerja yang dinamis, suportif, dan kolaboratif.',
+            'Peluang pengembangan karir dan akses ke pelatihan/kursus premium.',
+            'Fleksibilitas jam kerja dan opsi remote-friendly.',
+            'Fasilitas kantor modern dengan area rekreasi.',
+            'Bonus kinerja tahunan.',
+            'Cuti tahunan yang liberal.',
+        ],
+        'posted_date' => '25 Mei 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Senior',
+        'category' => 'Teknologi',
+    ],
+    [
+        'title' => 'Backend Engineer',
+        'company' => 'Startup XYZ',
+        'location' => 'Bandung',
+        'salary' => 'Rp6.000.000 - Rp8.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo2',
+        'description' => 'Startup XYZ sedang mencari Backend Engineer berbakat untuk mengembangkan dan memelihara arsitektur sisi server aplikasi kami yang kompleks. Anda akan merancang, membangun, dan mengelola API yang skalabel dan efisien, serta bekerja dengan database relasional dan non-relasional. Kandidat ideal memiliki passion untuk membangun sistem yang kuat, performa tinggi, dan aman. Anda akan menjadi bagian integral dari tim yang mendorong inovasi teknologi.',
+        'requirements' => [
+            'Pengalaman minimal 2 tahun di pengembangan backend (preferensi Node.js, Python, Java, Go, atau PHP).',
+            'Pemahaman kuat tentang desain dan implementasi RESTful APIs serta arsitektur microservices.',
+            'Pengalaman dengan database SQL (PostgreSQL, MySQL) dan/atau NoSQL (MongoDB, Redis).',
+            'Terbiasa dengan konsep message queues (Kafka, RabbitMQ) adalah nilai tambah.',
+            'Pengetahuan tentang containerization (Docker, Kubernetes) dan CI/CD adalah nilai tambah.',
+            'Mampu menulis kode yang bersih, terdokumentasi, dan teruji.',
+        ],
+        'benefits' => [
+            'Asuransi kesehatan dan makan siang gratis setiap hari kerja.',
+            'Budaya startup yang inovatif, cepat, dan berorientasi pada hasil.',
+            'Kesempatan bekerja dengan teknologi terkini dan eksperimental.',
+            'Bonus kinerja tahunan dan opsi saham perusahaan.',
+            'Program mentoring dan kesempatan berpartisipasi di konferensi teknologi.',
+        ],
+        'posted_date' => '20 Mei 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Mid-level',
+        'category' => 'Teknologi',
+    ],
+    [
+        'title' => 'Product Manager',
+        'company' => 'Tech Solutions',
+        'location' => 'Surabaya',
+        'salary' => 'Rp8.000.000 - Rp12.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo3',
+        'description' => 'Kami mencari Product Manager yang strategis dan berorientasi pada hasil untuk memimpin pengembangan produk digital kami dari konsep hingga eksekusi. Anda akan bertanggung jawab atas seluruh siklus hidup produk, mulai dari ideasi, riset pasar, definisi roadmap, hingga peluncuran dan evaluasi pasca-peluncuran. Anda akan bekerja sama dengan tim engineering, desain, dan marketing untuk memastikan produk memenuhi visi dan kebutuhan pasar.',
+        'requirements' => [
+            'Pengalaman minimal 3 tahun sebagai Product Manager di industri teknologi.',
+            'Memiliki kemampuan komunikasi, negosiasi, dan kepemimpinan yang kuat.',
+            'Terbiasa dengan metodologi pengembangan produk seperti Agile/Scrum dan Kanban.',
+            'Mampu menganalisis data (pengguna, pasar, kinerja) untuk pengambilan keputusan produk yang tepat.',
+            'Pemahaman mendalam tentang siklus pengembangan software (SDLC).',
+            'Gelar Sarjana di bidang terkait (Bisnis, Teknik, Ilmu Komputer).',
+        ],
+        'benefits' => [
+            'Opsi saham perusahaan yang menarik.',
+            'Lingkungan kerja yang dinamis, menantang, dan inovatif.',
+            'Tunjangan pendidikan dan sertifikasi profesional.',
+            'Kopi dan makanan ringan gratis di kantor setiap hari.',
+            'Perjalanan bisnis dan konferensi industri.',
+        ],
+        'posted_date' => '22 April 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Senior',
+        'category' => 'Manajemen',
+    ],
+    [
+        'title' => 'Data Scientist',
+        'company' => 'Analytic Corp',
+        'location' => 'Jakarta',
+        'salary' => 'Rp9.000.000 - Rp15.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo4',
+        'description' => 'Analytic Corp mencari Data Scientist yang bersemangat untuk mengubah data mentah menjadi wawasan bisnis yang dapat ditindaklanjuti dan model prediktif yang akurat. Anda akan merancang eksperimen, mengumpulkan dan membersihkan data, membangun dan mengevaluasi model machine learning, serta mengkomunikasikan temuan kompleks kepada pemangku kepentingan non-teknis. Posisi ini membutuhkan pemikiran analitis yang kuat dan kemampuan problem-solving yang inovatif.',
+        'requirements' => [
+            'Gelar Master atau PhD di bidang Statistik, Matematika, Ilmu Komputer, atau bidang terkait.',
+            'Pengalaman kuat dalam Python atau R untuk analisis data dan machine learning.',
+            'Mahir dalam machine learning (regresi, klasifikasi, clustering), statistik, dan data mining.',
+            'Pengalaman dengan database SQL dan NoSQL serta tools big data (Hadoop, Spark) adalah nilai tambah.',
+            'Portofolio proyek data science yang solid dan menunjukkan kemampuan praktis.',
+            'Mampu mengkomunikasikan hasil analisis secara jelas dan efektif.',
+        ],
+        'benefits' => [
+            'Bonus proyek besar dan insentif berdasarkan dampak bisnis.',
+            'Akses ke data set eksklusif dan infrastruktur komputasi tinggi.',
+            'Peluang riset dan publikasi di konferensi internasional.',
+            'Tunjangan perangkat keras dan software yang diperlukan.',
+            'Lingkungan tim yang berkolaborasi dan berorientasi pada pembelajaran.',
+        ],
+        'posted_date' => '10 April 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Senior',
+        'category' => 'Teknologi',
+    ],
+    [
+        'title' => 'UI/UX Designer',
+        'company' => 'Creative Agency',
+        'location' => 'Surabaya',
+        'salary' => 'Rp4.000.000 - Rp6.000.000',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo3',
+        'description' => 'Kami membutuhkan UI/UX Designer yang kreatif dan berorientasi pada pengguna untuk merancang pengalaman digital yang indah dan intuitif untuk berbagai klien kami. Anda akan terlibat dari fase riset pengguna, pembuatan user flow, wireframe, hingga prototipe interaktif dan pengujian usability. Anda harus memastikan bahwa setiap desain tidak hanya menarik secara visual tetapi juga sangat fungsional dan memenuhi kebutuhan pengguna serta tujuan bisnis.',
+        'requirements' => [
+            'Portofolio yang kuat menunjukkan proyek UI/UX sebelumnya yang berhasil.',
+            'Mahir menggunakan tools desain (Figma, Sketch, Adobe XD, atau sejenisnya).',
+            'Memahami prinsip-prinsip desain interaksi, usability, dan user-centered design (UCD).',
+            'Mampu membuat wireframe, mockup fidelity rendah/tinggi, dan prototipe interaktif.',
+            'Pengalaman dalam melakukan riset pengguna, wawancara, dan pengujian usability.',
+            'Kemampuan untuk mengkomunikasikan ide desain secara efektif kepada tim dan klien.',
+        ],
+        'benefits' => [
+            'Lingkungan kerja yang suportif dan sangat kreatif dengan proyek-proyek yang beragam.',
+            'Peluang untuk terlibat dalam proyek-proyek inovatif dan mendapatkan pengakuan industri.',
+            'Workshop dan pelatihan desain reguler untuk meningkatkan skill.',
+            'Bonus proyek berdasarkan keberhasilan dan kepuasan klien.',
+            'Akses ke sumber daya desain premium dan komunitas desainer.',
+        ],
+        'posted_date' => '18 Mei 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Junior-Mid',
+        'category' => 'Desain',
+    ],
+    [
+        'title' => 'Digital Marketing Specialist',
+        'company' => 'Growth Agency',
+        'location' => 'Jakarta',
+        'salary' => 'Rp4.500.000 - Rp7.000.000',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo5',
+        'description' => 'Growth Agency membutuhkan Digital Marketing Specialist yang berorientasi pada hasil untuk merancang dan melaksanakan kampanye pemasaran digital yang efektif di berbagai saluran. Anda akan mengelola strategi SEO, SEM (Google Ads), media sosial, email marketing, dan display advertising untuk meningkatkan brand awareness, traffic, dan akuisisi pelanggan. Anda harus selalu up-to-date dengan tren digital marketing terbaru dan siap beradaptasi.',
+        'requirements' => [
+            'Pengalaman minimal 2 tahun di bidang digital marketing dengan track record yang terbukti.',
+            'Memahami mendalam tentang SEO (on-page, off-page), SEM (keyword research, campaign management), Google Analytics, dan Social Media Marketing (paid & organic).',
+            'Mampu membuat laporan performa kampanye serta mengidentifikasi area peningkatan.',
+            'Kreatif dan inovatif dalam merancang strategi pemasaran digital.',
+            'Sertifikasi Google Ads/Analytics adalah nilai tambah.',
+        ],
+        'benefits' => [
+            'Komisi berdasarkan performa kampanye yang berhasil.',
+            'Lingkungan kerja yang kolaboratif, dinamis, dan suportif.',
+            'Kesempatan untuk belajar dan menerapkan tools serta platform marketing terbaru.',
+            'Tunjangan komunikasi dan transportasi.',
+            'Peluang untuk memimpin proyek-proyek strategis.',
+        ],
+        'posted_date' => '05 Mei 2025',
+        'job_type' => 'Full-time',
+        'level' => 'Mid-level',
+        'category' => 'Pemasaran',
+    ],
+    [
+        'title' => 'Content Writer',
+        'company' => 'Media Creator',
+        'location' => 'Yogyakarta',
+        'salary' => 'Rp3.500.000 - Rp5.500.000',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo6',
+        'description' => 'Media Creator mencari Content Writer yang berbakat dan memiliki passion dalam bercerita untuk berbagai platform klien kami. Anda akan menciptakan konten yang menarik, informatif, dan relevan untuk blog, copy website, materi pemasaran, siaran pers, dan skrip video. Anda harus mampu beradaptasi dengan berbagai gaya penulisan dan target audiens, serta memiliki pemahaman dasar tentang SEO.',
+        'requirements' => [
+            'Pengalaman minimal 1 tahun sebagai Content Writer, Copywriter, atau jurnalis.',
+            'Kemampuan menulis yang sangat baik dan tata bahasa yang sempurna dalam Bahasa Indonesia (dan Bahasa Inggris jika ada).',
+            'Memahami prinsip-prinsip SEO copywriting dan cara mengoptimalkan konten untuk mesin pencari.',
+            'Kreatif, mampu menghasilkan ide-ide segar, dan mampu memenuhi deadline yang ketat.',
+            'Portofolio tulisan yang relevan dan menunjukkan beragam gaya.',
+            'Kemampuan riset yang kuat.',
+        ],
+        'benefits' => [
+            'Jam kerja yang fleksibel dan opsi kerja remote.',
+            'Kesempatan untuk bekerja pada beragam proyek dan industri.',
+            'Bonus artikel dengan performa terbaik (misalnya, jumlah pembaca tinggi atau konversi).',
+            'Mentoring dari editor senior dan pelatihan penulisan profesional.',
+            'Lingkungan kerja yang mendukung kreativitas dan pengembangan diri.',
+        ],
+        'posted_date' => '01 Mei 2025',
+        'job_type' => 'Part-time',
+        'level' => 'Entry-level',
+        'category' => 'Pemasaran',
+    ],
+    [
+        'title' => 'Akuntan Senior',
+        'company' => 'FinancEast',
+        'location' => 'Jakarta',
+        'salary' => 'Rp7.000.000 - Rp10.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo7',
+        'description' => 'Mencari akuntan berpengalaman untuk mengelola keuangan.',
+        'job_type' => 'Full-time',
+        'level' => 'Senior',
+        'category' => 'Keuangan',
+    ],
+    [
+        'title' => 'Perawat Medis',
+        'company' => 'RS Sehat Sejahtera',
+        'location' => 'Surabaya',
+        'salary' => 'Rp4.000.000 - Rp7.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo8',
+        'description' => 'Dibutuhkan perawat untuk shift malam.',
+        'job_type' => 'Full-time',
+        'level' => 'Entry-level',
+        'category' => 'Kesehatan',
+    ],
+    [
+        'title' => 'Guru Matematika',
+        'company' => 'Bimbel Cerdas',
+        'location' => 'Bandung',
+        'salary' => 'Rp3.000.000 - Rp5.000.000',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo9',
+        'description' => 'Mencari guru matematika untuk siswa SMA.',
+        'job_type' => 'Part-time',
+        'level' => 'Entry-level',
+        'category' => 'Edukasi',
+    ],
+];
+
+// Dummy data untuk Kategori Pekerjaan
+$job_categories = [
+    ['name' => 'Teknologi', 'icon' => 'fas fa-laptop-code', 'count' => '120+'],
+    ['name' => 'Desain', 'icon' => 'fas fa-palette', 'count' => '85+'],
+    ['name' => 'Pemasaran', 'icon' => 'fas fa-bullhorn', 'count' => '90+'],
+    ['name' => 'Keuangan', 'icon' => 'fas fa-chart-line', 'count' => '60+'],
+    ['name' => 'Kesehatan', 'icon' => 'fas fa-hospital', 'count' => '45+'],
+    ['name' => 'Edukasi', 'icon' => 'fas fa-user-graduate', 'count' => '50+'],
+    ['name' => 'Manajemen', 'icon' => 'fas fa-tasks', 'count' => '70+'],
+];
+
+// Dummy data untuk Chat List Perusahaan
+$company_chats = [
+    [
+        'id' => 'pt_kreatif',
+        'name' => 'PT. Kreatif Indonesia',
+        'logo' => 'https://via.placeholder.com/50x50?text=Kreatif',
+        'last_message' => 'Lamaran Anda sedang kami proses.',
+        'time' => '1h',
+        'unread' => true,
+        'messages' => [
+            ['text' => 'Halo! Terima kasih telah melamar di PT. Kreatif Indonesia.', 'type' => 'received', 'time' => '09:00 AM'],
+            ['text' => 'Kami sudah menerima CV Anda.', 'type' => 'received', 'time' => '09:01 AM'],
+            ['text' => 'Lamaran Anda sedang kami proses.', 'type' => 'received', 'time' => '09:05 AM'],
+            ['text' => 'Baik, terima kasih banyak atas infonya!', 'type' => 'sent', 'time' => '09:10 AM'],
+        ]
+    ],
+    [
+        'id' => 'startup_xyz',
+        'name' => 'Startup XYZ',
+        'logo' => 'https://via.placeholder.com/50x50?text=XYZ',
+        'last_message' => 'Sampai bertemu di wawancara.',
+        'time' => 'Kemarin',
+        'unread' => false,
+        'messages' => [
+            ['text' => 'Halo, kami mengundang Anda untuk wawancara posisi Backend Engineer.', 'type' => 'received', 'time' => 'Kemarin'],
+            ['text' => 'Baik, jam berapa ya?', 'type' => 'sent', 'time' => 'Kemarin'],
+            ['text' => 'Besok jam 10 pagi, online via Google Meet. Link akan dikirimkan.', 'type' => 'received', 'time' => 'Kemarin'],
+            ['text' => 'Siap, terima kasih!', 'type' => 'sent', 'time' => 'Kemarin'],
+            ['text' => 'Sampai bertemu di wawancara.', 'type' => 'received', 'time' => 'Kemarin'],
+        ]
+    ],
+    [
+        'id' => 'creative_agency',
+        'name' => 'Creative Agency',
+        'logo' => 'https://via.placeholder.com/50x50?text=CA',
+        'last_message' => 'Anda bisa melamar melalui chat ini.',
+        'time' => '2 hari lalu',
+        'unread' => true,
+        'messages' => [
+            ['text' => 'Hai, kami melihat profil Anda cocok untuk posisi UI/UX Designer kami.', 'type' => 'received', 'time' => '2 hari lalu'],
+            ['text' => 'Anda bisa melamar melalui chat ini.', 'type' => 'received', 'time' => '2 hari lalu'],
+        ]
+    ],
+];
+
+// Dummy data untuk pengguna yang login (diperlukan untuk profile.php)
+$user_profile = [
+    'name' => 'Budi Santoso',
+    'email' => 'budi.santoso@example.com',
+    'phone' => '+62 812 3456 7890',
+    'location' => 'Jakarta, Indonesia',
+    'job_title' => 'Frontend Developer',
+    'bio' => 'Pengembang frontend dengan pengalaman 5 tahun dalam membangun aplikasi web responsif dan interaktif. Mahir dalam React, Vue, dan Angular. Bersemangat tentang UX dan performa web.',
+    'profile_pic' => 'https://via.placeholder.com/150x150?text=Profil',
+    'linkedin' => 'https://linkedin.com/in/budisantoso',
+    'github' => 'https://github.com/budisantoso',
+    'last_login' => '30 Juni 2025, 22:00 WIB',
+];
+
+// Dummy data untuk pengaturan pengguna (diperlukan untuk pengaturan.php)
+$user_settings = [
+    'email_notifications' => true,
+    'sms_notifications' => false,
+    'dark_mode' => false,
+    'privacy_profile_visibility' => 'public',
+    'security_2fa_enabled' => false,
+    'current_password_placeholder' => '********',
+];
+
+// Dummy data untuk lamaran pengguna (diperlukan untuk lowongan_saya_1.php)
+$my_applications = [
+    [
+        'title' => 'UI/UX Designer',
+        'company' => 'Creative Agency',
+        'status' => 'Sedang Ditinjau',
+        'date_applied' => '20 Juni 2025',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo3'
+    ],
+    [
+        'title' => 'Content Writer',
+        'company' => 'Media Creator',
+        'status' => 'Wawancara Dijadwalkan',
+        'date_applied' => '15 Juni 2025',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo6'
+    ],
+    [
+        'title' => 'Backend Engineer',
+        'company' => 'Startup XYZ',
+        'status' => 'Diterima',
+        'date_applied' => '10 Juni 2025',
+        'logo' => 'https://via.placeholder.com/60x60?text=Logo2'
+    ],
+    [
+        'title' => 'Digital Marketing Specialist',
+        'company' => 'Growth Agency',
+        'status' => 'Ditolak',
+        'date_applied' => '05 Juni 2025',
+        'logo' => 'https://via.placeholder.com/40x40?text=Logo5'
+    ],
+];
+
+// Dummy data untuk lowongan yang diposting oleh pengguna (diperlukan untuk lowongan_saya_2.php)
+$my_posted_jobs = [
+    [
+        'title' => 'Digital Marketing Manager',
+        'company' => 'Global Corp',
+        'location' => 'Jakarta',
+        'status' => 'Aktif',
+        'applicants' => 15,
+        'logo' => 'https://via.placeholder.com/60x60?text=GC'
+    ],
+    [
+        'title' => 'HR Specialist',
+        'company' => 'Global Corp',
+        'location' => 'Bandung',
+        'status' => 'Ditutup',
+        'applicants' => 8,
+        'logo' => 'https://via.placeholder.com/60x60?text=GC'
+    ],
+];
+?>
