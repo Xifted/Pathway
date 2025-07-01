@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register Step-by-Step - Pathway</title>
+    <style>
+        /* CSS Anda yang sudah ada */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background:
+                url('gambarlogin.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 35px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: #4a4a4a;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1.8px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+            outline: none;
+            background-color: #fafafa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-color: #1e1f25;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            flex: 1 1 45%;
+            background: #f0f0ff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+        }
+
+        .checkbox-group label:hover {
+            background-color: #e2e7ff;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .agreement {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+
+        .agreement input {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        .agreement strong {
+            color: #667eea;
+        }
+
+        .btn {
+            background: #363636;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 0;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            letter-spacing: 0.7px;
+            width: 48%;
+        }
+
+        .btn:hover {
+            background: #4b4b4d;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        /* Step container */
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        /* Added for validation feedback */
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.85em;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding: 25px 20px;
+            }
+            .checkbox-group label {
+                flex: 1 1 100%;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <form class="container" action="register_process.php" method="POST" id="regForm" novalidate>
+        <h2>Daftar atuh kakang</h2>
+
+        <div class="step active">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap" />
+            <div class="invalid-feedback" id="nama-error"></div>
+
+            <label for="jurusan">Jurusan</label>
+            <input type="text" id="jurusan" name="jurusan" required placeholder="Masukkan jurusan" />
+            <div class="invalid-feedback" id="jurusan-error"></div>
+        </div>
+
+        <div class="step">
+            <label for="email">Email Mahasiswa</label>
+            <input type="email" id="email" name="email" required placeholder="name@studentupj.ac.id" />
+            <div class="invalid-feedback" id="email-error"></div>
+
+            <label for="nim">NIM</label>
+            <input type="text" id="nim" name="nim" required placeholder="Nomor Induk Mahasiswa" />
+            <div class="invalid-feedback" id="nim-error"></div>
+        </div>
+
+        <div class="step">
+            <label for="tanggal_lahir">Tanggal Lahir</label>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" required />
+            <div class="invalid-feedback" id="tanggal_lahir-error"></div>
+
+            <label for="password">Kata Sandi</label>
+            <input type="password" id="password" name="password" required placeholder="Minimal 8 karakter" minlength="8" />
+            <div class="invalid-feedback" id="password-error"></div>
+        </div>
+
+        <div class="step">
+            <label for="kategori">Kategori Pekerjaan</label>
+            <select name="kategori" id="kategori" required onchange="handleKategoriChange()">
+                <option value="" disabled selected>-- Pilih Kategori --</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Programming">Programming</option>
+                <option value="Finance">Finance</option>
+            </select>
+            <div class="invalid-feedback" id="kategori-error"></div>
+        </div>
+
+        <div class="step" id="skill-step">
+            <label>Skill (maksimal 10)</label>
+            <div class="checkbox-group" id="skill-group"></div>
+            <div class="invalid-feedback" id="skill-error"></div>
+        </div>
+
+        <div class="step">
+            <label class="agreement">
+                <input type="checkbox" name="persetujuan" id="persetujuan" required />
+                Saya setuju dengan <strong>Ketentuan</strong> dan <strong>Kebijakan Privasi</strong>
+            </label>
+            <div class="invalid-feedback" id="persetujuan-error"></div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn" id="prevBtn" onclick="nextPrev(-1)" style="visibility:hidden;">Sebelumnya</button>
+            <button type="button" class="btn" id="nextBtn" onclick="nextPrev(1)">Selanjutnya</button>
+        </div>
+    </form>
+
+    <script>
+        // Data skill yang tersedia berdasarkan kategori
+        const skillOptions = {
+            "UI/UX Design": ["Figma", "Adobe XD", "Prototyping", "Wireframing"],
+            "Programming": ["Frontend", "Backend", "DevOps", "Database", "Mobile Development"],
+            "Finance": ["Akuntansi", "Analisis Laporan Keuangan", "Excel", "Audit", "Perpajakan"]
+        };
+
+        const form = document.getElementById("regForm");
+        const steps = document.querySelectorAll(".step");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const kategoriSelect = document.getElementById("kategori");
+        const skillGroup = document.getElementById("skill-group");
+        const skillStep = document.getElementById("skill-step");
+
+        let currentStep = 0; // Mengatur langkah awal ke 0 (langkah pertama)
+
+        /**
+         * Menampilkan langkah form yang sesuai.
+         * @param {number} n Indeks langkah yang akan ditampilkan.
+         */
+        function showStep(n) {
+            // Sembunyikan semua langkah, lalu tampilkan langkah ke-n
+            steps.forEach((step, i) => {
+                step.classList.toggle("active", i === n);
+            });
+
+            // Atur visibilitas tombol "Sebelumnya"
+            prevBtn.style.visibility = n === 0 ? "hidden" : "visible";
+
+            // Ubah teks tombol "Selanjutnya" menjadi "Selesai" jika di langkah terakhir
+            nextBtn.textContent = (n === steps.length - 1) ? "Selesai" : "Selanjutnya";
+
+            // Khusus untuk langkah "Skill", pastikan skill ditampilkan jika kategori sudah dipilih
+            // dan sembunyikan jika belum atau kategori tidak valid
+            if (steps[n] === skillStep) {
+                const kategoriTerpilih = kategoriSelect.value;
+                if (kategoriTerpilih) {
+                    tampilkanSkill(kategoriTerpilih);
+                    // Pastikan langkah skill terlihat
+                    skillStep.style.display = "block";
+                } else {
+                    // Jika tidak ada kategori terpilih, sembunyikan langkah skill
+                    skillStep.style.display = "none";
+                    // Bisa juga arahkan kembali ke langkah kategori jika ini terjadi saat maju
+                    // (optional, tergantung UX yang diinginkan)
+                }
+            } else {
+                // Sembunyikan langkah skill jika bukan langkah aktif
+                skillStep.style.display = "none";
+            }
+        }
+
+        /**
+         * Memvalidasi input pada langkah saat ini.
+         * Menampilkan pesan error kustom jika validasi gagal.
+         * @returns {boolean} True jika semua input valid, false jika ada yang tidak valid.
+         */
+        function validateStep() {
+            let valid = true;
+            const currentInputs = steps[currentStep].querySelectorAll("input:not([type='checkbox']), select");
+            const currentCheckboxes = steps[currentStep].querySelectorAll("input[type='checkbox']");
+
+            // Reset pesan error sebelumnya
+            steps[currentStep].querySelectorAll(".invalid-feedback").forEach(div => div.textContent = "");
+
+            // Validasi input teks, email, date, password, select
+            currentInputs.forEach(input => {
+                if (input.checkValidity()) {
+                    input.style.borderColor = "#ddd"; // Reset border
+                } else {
+                    valid = false;
+                    input.style.borderColor = "#dc3545"; // Merah jika tidak valid
+                    const errorDiv = document.getElementById(`${input.id}-error`);
+                    if (errorDiv) {
+                        if (input.type === "email" && input.validity.typeMismatch) {
+                            errorDiv.textContent = "Format email tidak valid. Gunakan '@studentupj.ac.id'.";
+                        } else if (input.id === "password" && input.validity.tooShort) {
+                            errorDiv.textContent = `Kata sandi minimal ${input.minLength} karakter.`;
+                        } else {
+                            errorDiv.textContent = input.validationMessage || "Bidang ini wajib diisi.";
+                        }
+                    }
+                }
+            });
+
+            // Validasi khusus untuk kategori pekerjaan
+            if (steps[currentStep].querySelector('#kategori')) {
+                if (kategoriSelect.value === "") {
+                    valid = false;
+                    kategoriSelect.style.borderColor = "#dc3545";
+                    document.getElementById("kategori-error").textContent = "Pilih kategori pekerjaan Anda.";
+                } else {
+                    kategoriSelect.style.borderColor = "#ddd";
+                }
+            }
+
+
+            // Validasi khusus untuk langkah skill (maksimal 10)
+            if (steps[currentStep] === skillStep) {
+                const checkedSkills = skillGroup.querySelectorAll("input[type=checkbox]:checked");
+                if (checkedSkills.length === 0) {
+                    valid = false;
+                    document.getElementById("skill-error").textContent = "Pilih setidaknya satu skill.";
+                } else if (checkedSkills.length > 10) {
+                    valid = false;
+                    document.getElementById("skill-error").textContent = "Maksimal 10 skill yang boleh dipilih.";
+                }
+            }
+            
+            // Validasi persetujuan
+            if (steps[currentStep].querySelector('#persetujuan')) {
+                const agreementCheckbox = document.getElementById("persetujuan");
+                if (!agreementCheckbox.checked) {
+                    valid = false;
+                    document.getElementById("persetujuan-error").textContent = "Anda harus menyetujui Ketentuan dan Kebijakan Privasi.";
+                }
+            }
+
+
+            return valid;
+        }
+
+        /**
+         * Mengatur navigasi langkah (maju/mundur).
+         * @param {number} n -1 untuk mundur, 1 untuk maju.
+         */
+        function nextPrev(n) {
+            // Jika maju, validasi langkah saat ini
+            if (n === 1 && !validateStep()) {
+                return false; // Jangan lanjutkan jika validasi gagal
+            }
+
+            // Sembunyikan langkah saat ini
+            steps[currentStep].classList.remove("active");
+
+            // Pindah ke langkah berikutnya/sebelumnya
+            currentStep += n;
+
+            // Jika sudah mencapai akhir form, submit
+            if (currentStep >= steps.length) {
+                form.submit();
+                return;
+            }
+
+            // Tampilkan langkah yang baru
+            showStep(currentStep);
+        }
+
+        /**
+         * Memuat dan menampilkan skill berdasarkan kategori yang dipilih.
+         * @param {string} kategori Kategori yang dipilih dari dropdown.
+         */
+        function tampilkanSkill(kategori) {
+            skillGroup.innerHTML = ""; // Bersihkan skill sebelumnya
+
+            if (kategori && skillOptions[kategori]) {
+                skillOptions[kategori].forEach(skill => {
+                    const label = document.createElement("label");
+                    const input = document.createElement("input");
+                    input.type = "checkbox";
+                    input.name = "skill[]";
+                    input.value = skill;
+                    
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(` ${skill}`));
+                    skillGroup.appendChild(label);
+                });
+                skillStep.style.display = "block"; // Pastikan langkah skill terlihat
+            } else {
+                skillStep.style.display = "none"; // Sembunyikan jika tidak ada kategori atau skill
+            }
+        }
+
+        // Fungsi yang dipanggil saat dropdown kategori berubah
+        function handleKategoriChange() {
+            const kategoriTerpilih = kategoriSelect.value;
+            tampilkanSkill(kategoriTerpilih);
+            // Opsional: jika ingin otomatis maju ke langkah skill setelah kategori dipilih
+            // nextPrev(1);
+        }
+
+        // Inisialisasi: Tampilkan langkah pertama saat halaman dimuat
+        showStep(currentStep);
+    </script>
+
+</body>
+</html>
